@@ -1,0 +1,22 @@
+/* *Font for heroImage h1 and p and load more button*/
+@import url("https://fonts.googleapis.com/css?family=Lobster|PT+Sans+Narrow|Slabo+27px|Major+Mono+Display");
+
+/* *Font for movie container */
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Saira+Extra+Condensed|Satisfy");
+
+/* *Font for actor details */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body,
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    background: linear-gradient(to right, #141e30, #243b55);
+}
