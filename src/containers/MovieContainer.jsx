@@ -22,9 +22,9 @@ class MovieContainer extends Component {
 
     componentDidUpdate() {
         const { movieId } = this.props.match.params;
-        const { movie, actors, directors } = this.props;
+        const { movie, actors, directors,videos } = this.props;
         if (movie) {
-            const movieState = { movie, actors, directors };
+            const movieState = { movie, actors, directors,videos };
             localStorage.setItem(`${movieId}`, JSON.stringify(movieState));
         }
     }
@@ -43,6 +43,7 @@ class MovieContainer extends Component {
                     directors={this.props.directors}
                     actors={this.props.actors}
                     loading={this.props.loading}
+                    videos={this.props.videos}
                 />
             </React.Fragment>
         );

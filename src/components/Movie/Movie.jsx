@@ -11,7 +11,7 @@ import Actor from "./../Pages/Actor/Actor";
 
 import "./Movie.css";
 
-const Movie = ({ movie, directors, actors, loading }) => {
+const Movie = ({ movie, videos,directors, actors, loading }) => {
     if (movie && directors && actors) {
         return (
             <React.Fragment>
@@ -44,6 +44,7 @@ Movie.propTypes = {
     actors: PropTypes.array,
     directors: PropTypes.array,
     loading: PropTypes.bool,
+    videos: PropTypes.object,
     movie: PropTypes.object
 };
 

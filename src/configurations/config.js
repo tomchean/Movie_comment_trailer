@@ -1,5 +1,6 @@
 const API_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "d46d740097baa41a646508d9f42267b7";
+/*const API_KEY = "4ff06499dd028e019c74d6de1f341ec4";*/
 
 // Images
 const IMAGE_BASE_URL = "http://image.tmdb.org/t/p/";

@@ -16,11 +16,13 @@ const Header = () => {
                 </Link>
             </div>
             <div>
-                <img
-                    src="./images/the_mdb_logo.png"
-                    alt=""
-                    className="rmdb-tmdb-logo"
-                />
+                <Link to="/login">
+                    <img
+                        src="./images/login.png"
+                        alt=""
+                        className="login"
+                    />
+                </Link>
             </div>
         </header>
     );
