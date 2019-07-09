@@ -5,7 +5,8 @@ const initialState = {
     actors: null,
     directors: [],
     videos: null,
-    loading: false
+    loading: false,
+    movieSimilar:[]
 };
 
 const movie = (state = initialState, action) => {
@@ -22,7 +23,8 @@ const movie = (state = initialState, action) => {
                 actors: action.payload.actors,
                 directors: action.payload.directors,
                 videos:action.payload.videos,
-                loading: false
+                loading: false,
+                movieSimilar:action.payload.movieSimilar
             };
         case actions.SHOW_LOADING_SPINNER:
             return {
@@ -36,6 +38,7 @@ const movie = (state = initialState, action) => {
                 actors: null,
                 directors: [],
                 videos: null,
+                movieSimilar:[]
             };
         default:
             return state;

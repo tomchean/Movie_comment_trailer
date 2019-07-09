@@ -1,0 +1,59 @@
+type Query {
+    comments(query:String): [Comment!]!
+    favorites(query:String): User!
+}
+
+type User {
+  userId:String!
+  favorite:[Favorite]
+}
+type Favorite {
+  movie_poster: String!
+  movie_title: String!
+  movieid: Int!
+}
+
+type Comment {
+  content:String!
+  stars:Int!
+  movieid:Int!
+  id: ID!
+}
+type Mutation {
+  createComment( data: CreateCommentInput!): Boolean!
+  createFavorite( data: CreateFavoriteInput ): Boolean!
+}
+
+input CreateFavoriteInput {
+  userId: String!
+  movieid:Int!
+  movie_poster: String!
+  movie_title: String!
+}
+
+
+input CreateCommentInput {
+  content: String!
+  stars: Int!
+  movieid:Int!
+}
+
+type Subscription {
+  comments(query: String!): CommentSubscriptionPayload!
+  users(query: String!): UsersSubscriptionPayload!
+}
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED 
+}
+
+type CommentSubscriptionPayload {
+  mutation: MutationType!
+  data: Comment!
+}
+
+type UsersSubscriptionPayload{
+  mutation: MutationType!
+  data: User
+}

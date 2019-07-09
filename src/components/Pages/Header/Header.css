@@ -7,19 +7,46 @@
     display: flex;
     justify-content: space-between;
 }
-
+.header button{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    opacity:0.8;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+    font-size: 30px;
+    padding-right: 30px;
+}
 .header div {
     margin: 2px;
     height:100%;
-    width: 300px;
+    width: 200px;
+}
+.div1{
+    width:1000px;
+}
+.user_bar{
+    display: flex;
 }
 
 .react-movie,
-.rmdb-tmdb-logo {
-    width: 50%;
-    height: 50%;
+.login-icon{
+    width: 60%;
+    height: 60%;
 }
 .login{
     width: 15%;
     height: 15%;
+}
+.profileimg{
+    width: 30%;
+    height: 30%;
+}
+
+.link-left{
+    float: left;
 }

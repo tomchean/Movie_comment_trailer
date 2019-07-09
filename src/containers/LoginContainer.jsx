@@ -1,38 +1,41 @@
 import React, { Component } from "react";
 import SocialButton from '../components/Pages/Login/SocialButton'
-import { FacebookLoginButton } from "react-social-login-buttons"
+import { connect } from "react-redux";
 
-const handleSocialLogin = (user) => {
-    console.log(user)
-}
-  
-const handleSocialLoginFailure = (err) => {
-    console.error(err)
-}
+import {
+    CLEAR_USER,
+    ADD_USER
+} from "./../actions";
 
 
 
-class MovieContainer extends Component {
-    componentDidMount(){
-        console.log('success')
+class LoginContainer extends Component {
+
+    handleSocialLogin = (user) => {
+        localStorage.setItem( "user", JSON.stringify(user._profile) );
+        this.props.ADD_USER(user);
+        this.props.history.push("/");
     }
-
+      
+    handleSocialLoginFailure = (err) => {
+    }
+    
     render() {
         return (
-            <div>
+            <div style={{width:'80%',margin:'20% auto',top:'100px'}}>
                 <SocialButton
                 provider='facebook'
                 appId='470809556989398'
-                onLoginSuccess={handleSocialLogin}
-                onLoginFailure={handleSocialLoginFailure}
+                onLoginSuccess={this.handleSocialLogin}
+                onLoginFailure={this.handleSocialLoginFailure}
                 >
                 Login with Facebook
                 </SocialButton>
                 <SocialButton
                 provider='google'
                 appId='1071549838231-ai1mvkl3rtee87tjc5mkcambq1eln86a.apps.googleusercontent.com'
-                onLoginSuccess={handleSocialLogin}
-                onLoginFailure={handleSocialLoginFailure}
+                onLoginSuccess={this.handleSocialLogin}
+                onLoginFailure={this.handleSocialLoginFailure}
                 >
                 Login with Google
                 </SocialButton>
@@ -41,5 +44,15 @@ class MovieContainer extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return state.user;
+};
+const mapDispatchToProps = {
+    ADD_USER,
+    CLEAR_USER
+};
 
-export default (MovieContainer);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(LoginContainer);

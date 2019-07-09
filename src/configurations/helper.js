@@ -23,3 +23,18 @@ export const fetchMovies = (endpoint, returnFunc = result => result) => {
         })
         .catch(error => console.error("Error:", error));
 };
+/*
+export const fecthGoogleSearch = (searchtext) =>{
+    axios.get(`https://en.wikipedia.org/w/api.php`, {
+        params: {
+        action: 'opensearch',
+        datatype: 'json',
+        limit: 15,
+        search: searchtext,
+        origin: '*'
+        }
+    })
+    .then((resp) => {
+        console.log(resp.data)
+    })
+}*/

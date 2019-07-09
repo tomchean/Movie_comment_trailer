@@ -1,0 +1,34 @@
+.mode-bar ul button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    opacity: 0.2;
+    font-weight: inherit;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:0;
+    font-size: 30px;
+}
+.mode-bar {
+    padding: 20px 70px 0px 70px;
+    grid-template-columns: minmax(150px, 250px);
+    justify-items: center;
+    justify-content: center;
+}
+
+.mode-bar ul   {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+.mode-bar ul button:hover {
+    opacity: 1.0;
+}
+
+.mode-bar ul button:focus {
+    opacity: 1.0;
+}

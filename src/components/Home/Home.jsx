@@ -4,6 +4,7 @@ import ScrollToTop from "react-scroll-up";
 import HeroImage from "../Pages/HeroImage/HeroImage";
 import SearchBar from "../Pages/SearchBar/SearchBar";
 import FourGrid from "../Pages/FourGrid/FourGrid";
+import ModeBar from "../Pages/ModeBar/ModeBar"
 import MovieThumbnail from "../Pages/MovieThumbnail/MovieThumbnail";
 
 import { POSTER_SIZE, IMAGE_BASE_URL } from "../../configurations/config";
@@ -21,9 +22,10 @@ const Home = ({
     loading,
     loadMoreMovies,
     heroImage,
-    currentPage
+    currentPage,
+    changemode
 }) => {
-    return (
+    return ( 
         <React.Fragment>
             {/* First check heroImage available or not */}
             {heroImage && (
@@ -33,8 +35,9 @@ const Home = ({
                 </div>
             )}
             <div>
+                <ModeBar changemode={changemode}/>
                 <FourGrid
-                    header={searchTerm ? "Searched Movies" : "Popular Movies"}
+                    header={null}
                     loading={loading}
                 >
                     {movies.map(movie => {

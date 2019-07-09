@@ -9,7 +9,7 @@ const Navigation = props => {
         <div className="navigation">
             <div className="navigation-content">
                 <Link to="/">
-                    <i className="fas fa-home fa-2x" />
+                    <i className="fas fa-home fa-1x" />
                 </Link>
                 <p>/</p>
                 <p>{props.movie}</p>

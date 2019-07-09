@@ -15,7 +15,7 @@ const FourGrid = props => {
         return gridElements;
     };
     return (
-        <div className="rmdb-grid">
+        <div className="rmdb-grid">            
             {props.header && !props.loading ? <h1>{props.header}</h1> : null}
             <div className="four-col-grid">{renderElements()}</div>
         </div>
@@ -23,7 +23,6 @@ const FourGrid = props => {
 };
 
 FourGrid.propTypes = {
-    header: PropTypes.string.isRequired,
     children: PropTypes.array.isRequired
 };
 

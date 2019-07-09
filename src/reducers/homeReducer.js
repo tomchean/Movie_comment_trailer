@@ -6,7 +6,8 @@ const initialState = {
     loading: false,
     currentPage: 0,
     totalPages: 0,
-    searchTerm: ""
+    searchTerm: "",
+    displaymode : "popular",
 };
 
 const home = (state = initialState, action) => {
@@ -16,7 +17,12 @@ const home = (state = initialState, action) => {
                 ...state,
                 ...action.payload
             };
-        case actions.GET_POPULER_MOVIES:
+        case actions.CHANGE_MODE:
+            return {
+                ...state,
+                displaymode: action.payload
+            }
+        case actions.GET_MOVIES:
             return {
                 ...state,
                 movies: action.payload.results,

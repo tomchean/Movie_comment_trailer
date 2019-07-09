@@ -17,11 +17,7 @@ const Header = () => {
             </div>
             <div>
                 <Link to="/login">
-                    <img
-                        src="./images/login.png"
-                        alt=""
-                        className="login"
-                    />
+                    <i className="fas fa-sign-in-alt login-icon"></i>
                 </Link>
             </div>
         </header>

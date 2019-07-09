@@ -5,49 +5,59 @@ import Home from "./../components/Home/Home";
 
 import {
     showLoadingSpinner,
-    getPopularMovies,
+    getMovies,
     searchMovies,
     loadMoreMovies,
     clearMovies,
-    setPopularState
+    setPopularState,
+    changemode
 } from "./../actions";
 
 class HomeContainer extends Component {
     componentDidMount() {
-        if (localStorage.getItem("HomeStorage")) {
+        /*if (localStorage.getItem("HomeStorage")) {
             const home = JSON.parse(localStorage.getItem("HomeStorage"));
             this.props.setPopularState(home);
         } else {
             this.getMovies();
-        }
+        }*/
+        this.getMovies(this.props.displaymode);
     }
 
     componentDidUpdate() {
+        /*
         // First check movies loaded or not
         if (this.props.movies.length > 0) {
             if (this.props.searchTerm === "") {
                 localStorage.setItem("HomeStorage", JSON.stringify(this.props));
             }
-        }
+        }*/
     }
 
-    getMovies = () => {
+    getMovies = (mode) => {
         this.props.showLoadingSpinner();
-        this.props.getPopularMovies();
+        this.props.getMovies(mode);
     };
 
-    searchMovies = searchTerm => {
+    searchMovies = (searchTerm) => {
+        const {displaymode} =  this.props;
         this.props.clearMovies();
         this.props.showLoadingSpinner();
-        this.props.searchMovies(searchTerm);
+        this.props.searchMovies(searchTerm,displaymode);
     };
 
     loadMoreMovies = () => {
-        const { searchTerm, currentPage } = this.props;
+        const { searchTerm, currentPage,displaymode } = this.props;
 
         this.props.showLoadingSpinner();
-        this.props.loadMoreMovies(searchTerm, currentPage);
+        this.props.loadMoreMovies(searchTerm, currentPage,displaymode);
     };
+    changemode = (mode) =>{
+        this.props.changemode(mode);
+        this.props.clearMovies();
+        this.props.showLoadingSpinner();
+        this.props.getMovies(mode);
+    }
 
     render() {
         return (
@@ -55,6 +65,7 @@ class HomeContainer extends Component {
                 {...this.props}
                 searchMovies={this.searchMovies}
                 loadMoreMovies={this.loadMoreMovies}
+                changemode = {this.changemode}
             />
         );
     }
@@ -66,11 +77,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     showLoadingSpinner,
-    getPopularMovies,
+    getMovies,
     searchMovies,
     loadMoreMovies,
     clearMovies,
-    setPopularState
+    setPopularState,
+    changemode
 };
 
 export default connect(
